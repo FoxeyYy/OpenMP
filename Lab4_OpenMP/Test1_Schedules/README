@@ -1,0 +1,31 @@
+
+Observar los tres c�digos de ejemplo. 
+- �Es regular la cantidad de c�mputo que ejecuta cada iteraci�n de los bucles anidados?
+- �Sigue alg�n patr�n predecible en alguno de los ejemplos?
+
+1. Incluir un pragma parallel que envuelva a los bucles de c�mputo. Tener en
+	cuenta qu� variables deben ser privadas.
+
+2. Incluir un pragma for en el bucle exterior, utilizando la cl�usula schedule para 
+	probar diferentes opciones de planificaci�n de las iteraciones:
+
+	- Bloques contiguos: Por defecto sin schedule (o static sin tama�o de chunk)
+	- Bloques c�clicos: Static con tama�o de bloque 8 o 16
+	- Dynamic con tama�o de bloque 1 (por defecto), 8 o 16
+	- Guided, con tama�o de bloque m�nimo 1 (por defecto), 8 o 16
+
+	Compilar con -fopenmp y -O3.
+	Comparar los tiempos obtenidos al ejecutar cada versi�n con un n�mero de threads igual 
+	al n�mero de cores de la m�quina (por 2 si tiene opci�n de hyperthreading). Deducir 
+	que opciones son m�s adecuadas en cada problema y por qu�.
+
+3. �Es correcto paralelizar el bucle interior utilizando la cl�usula nowait
+	para reducir las sincronizaciones? �Con cualquier schedule? Si, si
+
+4. Con el schedule por defecto, �es diferente paralelizar el bucle exterior, o el interior
+	en alguno de los ejemplos? �Y con el mejor schedule?  Indiferente
+
+5. Con el mejor schedule, �tiene alg�n efecto utilizar la cl�usula collapse en alguno 
+	de los ejemplos? Poca
+
+

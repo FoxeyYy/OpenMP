@@ -1,0 +1,44 @@
+
+En la clase pr�ctica anterior paralelizamos la multiplicaci�n de matrices,
+paralelizando en diferentes pruebas cada uno de los tres bucles. 
+Sobre el algoritmo tal cual, o invirtiendo los dos bucles interiores.
+
+Por tanto hay tres posibilidades en el algoritmo original, y otras tres tras invertir 
+los bucles interiores.
+
+
+1. �Derivan las seis combinaciones en resultados correctos al paralelizar?
+
+	a) Pensar cu�les pueden derivar en condiciones de competici�n o carrera, y por tanto en errores
+	impredecibles en los resultados. Anotar en la siguiente tabla, para cada combinaci�n, si creeis 
+	que puede dar errores o no.
+
+	Bucles no invertidos:
+		- Paralelizar i	  ( OK / Error ) OK
+		- Paralelizar j	  ( OK / Error ) OK
+		- Paralelizar k	  ( OK / Error ) ERROR
+
+	Bucles j,k invertidos:
+		- Paralelizar i	  ( OK / Error ) OK
+		- Paralelizar j	  ( OK / Error ) OK
+		- Paralelizar k	  ( OK / Error ) ERROR
+
+
+	b) Ejecutar varias veces cada una de las combinaciones con 4 threads, para comprobar
+	si se han detectado correctamente las posibles situaciones potencialmente problem�ticas.
+
+
+2. En alguna de las versiones problem�ticas, utilizar directivas de regi�n cr�tica para 
+	resolver el problema. 
+	Comprobar que los resultados son correctos con 4 threads.
+	Medir los tiempos de ejecuci�n con diferentes n�meros de threads y comparar 
+	con la versi�n sin regi�n cr�tica.
+
+
+3. En la misma versi�n, utilizar operaciones at�micas en lugar de regi�n cr�tica.
+	Comprobar que los resultados son correctos con 4 threads. 
+	Medir los tiempos de ejecuci�n con diferentes n�meros de threads y comparar 
+	con las versiones anteriores.
+
+4. Probar a crear una regi�n paralela alrededor de los tres bucles, y utilizar s�lo
+	omp for en los bucles interiores. �Cambian apreciablemente los resultados?
